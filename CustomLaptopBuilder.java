@@ -14,22 +14,22 @@ public class CustomLaptopBuilder implements LaptopBuilder {
 
     @Override
     public void buildLaptopGraphics() {
-        laptop.setLaptopGraphics(Main.getWhatGPU());
+        laptop.setLaptopGraphics(ComputerStore.getWhatGPU());
     }
 
     @Override
     public void buildLaptopProcessor() {
-        laptop.setLaptopProcessor(Main.getWhatCPU());
+        laptop.setLaptopProcessor(ComputerStore.getWhatCPU());
     }
 
     @Override
     public void buildLaptopScreen() {
-        laptop.setLaptopScreen(Main.getWhatScreen());
+        laptop.setLaptopScreen(ComputerStore.getWhatScreen());
     }
 
     @Override
     public void buildLaptopWeight() {
-        laptop.setLaptopWeight(Main.getWhatWeight());
+        laptop.setLaptopWeight(ComputerStore.getWhatWeight());
     }
 
     public Laptop getLaptop() {
