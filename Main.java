@@ -1,7 +1,5 @@
 package com.example.lesson40;
 
-import com.sun.org.apache.xpath.internal.SourceTree;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -9,6 +7,11 @@ import java.sql.SQLException;
 import java.util.Scanner;
 
 public class Main {
+    private static String whatCPU;
+    public static String whatGPU;
+    public static String whatScreen;
+    public static String whatWeight;
+
     public static void main(String[] args) throws SQLException/*, ClassNotFoundException*/ {
 
         //Class.forName("com.mysql.jdbc.Driver");
@@ -18,6 +21,11 @@ public class Main {
         LaptopBuilder myTravelLaptop = new TravelLaptopBuilder();
         LaptopEngineer myLaptopEngineer;
 
+
+        /*---------------------Trying to send input to CustomLaptopBuilder class-----------------------*/
+
+
+
                 /* here is switch case*/
         System.out.println("Choose a laptop:\n" +
                 "Press 1 for a Custom Laptop\n" +
@@ -25,10 +33,26 @@ public class Main {
                 "Press 3 for the Travel Laptop");
         Scanner scan = new Scanner(System.in);
         int choice = scan.nextInt();
-        ;
+
+
+
+
         LaptopEngineer chosenLaptop;
         switch (choice) {
             case 1:
+                System.out.println("what CPU");
+                Scanner scan2 = new Scanner(System.in);
+                whatCPU = scan2.nextLine();
+                System.out.println("what GPU");
+                whatGPU = scan2.nextLine();
+                System.out.println("what Screen (decimal, for example 40.5)");
+                whatScreen = scan2.nextLine();
+                System.out.println("what Weight (decimal, for example 1.2)");
+                whatWeight = scan2.nextLine();
+                setWhatCPU(whatCPU);
+                setWhatGPU(whatGPU);
+                setWhatScreen(whatScreen);
+                setWhatWeight(whatWeight);
                 chosenLaptop = new LaptopEngineer(myCustomLaptop);
                 break;
             case 2:
@@ -42,9 +66,21 @@ public class Main {
                 break;
         }
 
+
+
+
+
+
+
+
+
+
         myLaptopEngineer = chosenLaptop;
         myLaptopEngineer.makeLaptop();
         Laptop firstLaptop = myLaptopEngineer.getLaptop();
+
+
+
 
         System.out.println("Chosen: " + firstLaptop.getLaptopType());
         System.out.println("GPU: " + firstLaptop.getLaptopGraphics());
@@ -78,5 +114,37 @@ public class Main {
         } finally {
             conn.close();
         }
+    }
+
+    public static String getWhatGPU() {
+        return whatGPU;
+    }
+
+    public static void setWhatGPU(String whatGPU) {
+        Main.whatGPU = whatGPU;
+    }
+
+    public static String getWhatCPU() {
+        return whatCPU;
+    }
+
+    public static void setWhatCPU(String whatCPU) {
+        Main.whatCPU = whatCPU;
+    }
+
+    public static String getWhatScreen() {
+        return whatScreen;
+    }
+
+    public static void setWhatScreen(String whatScreen) {
+        Main.whatScreen = whatScreen;
+    }
+
+    public static String getWhatWeight() {
+        return whatWeight;
+    }
+
+    public static void setWhatWeight(String whatWeight) {
+        Main.whatWeight = whatWeight;
     }
 }
