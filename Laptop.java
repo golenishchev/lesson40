@@ -1,5 +1,3 @@
-package com.example.lesson40;
-
 public class Laptop implements LaptopPlan {
     private String laptopType;
     private String laptopGraphics;

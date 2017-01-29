@@ -1,5 +1,3 @@
-package com.example.lesson40;
-
 public class GamingLaptopBuilder implements LaptopBuilder {
     private Laptop laptop;
 

@@ -1,5 +1,3 @@
-package com.example.lesson40;
-
 public interface LaptopBuilder {
 
     public void showLaptopType();
